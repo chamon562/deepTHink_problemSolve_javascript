@@ -82,3 +82,10 @@ function returnFirstIndex(){
 }
 
 console.log(returnFirstIndex());
+
+function getFirstItem(items){
+    return items[0]
+    
+}
+const creatures = ["rat", "bat", "fish"]
+console.log(getFirstItem(creatures))
