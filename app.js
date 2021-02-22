@@ -76,16 +76,60 @@ function ageInSeconds(age) {
 // first item in an array
 const popping = ["hitting", "waving", "dime stop", "speed change", "animation"]
 
-function returnFirstIndex(){
+function returnFirstIndex() {
     let firstIndex = popping[0]
     return firstIndex;
 }
 
 console.log(returnFirstIndex());
 
-function getFirstItem(items){
+function getFirstItem(items) {
     return items[0]
-    
+
 }
 const creatures = ["rat", "bat", "fish"]
 console.log(getFirstItem(creatures))
+
+function addittion(a, b) {
+    return a + b;
+}
+
+console.log(addittion(1, 1));
+
+minToSecs = (min) => {
+    return min * 60;
+}
+
+console.log(minToSecs(3))
+
+const topFiveMovies = ["Forest Gump", "Ip Man", "A Moment To remember", "Roof Top Prince", "49 Days"]
+
+function loopTopFive() {
+    for (let i = 0; i < topFiveMovies.length; i++) {
+        //    console.log(topFiveMovies[i]);
+        let results = topFiveMovies[i];
+        // console.log(result);
+    }
+}
+loopTopFive();
+
+const numsArray = [2, 1, 4, 5, 7]
+
+function findMin() {
+    let minNum = numsArray[0]
+    // console.log(minNum)
+    for (let i = 0; i < numsArray.length; i++) {
+        // if (numsArray < minNum) {
+        //     minNum = numsArray[i]
+        // }
+        // console.log(numsArray[i])
+        // 2 < 0 index 2 making it false. 
+        // 1 < 0 index 2 making it true 
+        if (numsArray[i] < minNum) {
+            // so minNum when true will = numsArray[i] printing out the 1
+            minNum = numsArray[i] // 1
+        }
+    }
+    return minNum
+}
+console.log("line 132", findMin());// 1
