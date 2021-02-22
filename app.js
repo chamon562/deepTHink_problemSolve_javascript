@@ -135,10 +135,10 @@ function findMin() {
 }
 console.log("line 132:", findMin());// 1
 
-let findMinimum = (numbers) =>{
+let findMinimum = (numbers) => {
     let minimum = numbers[0];
-    for (let i = 0; i < numbers.length; i ++){
-        if (numbers[i] < minimum){
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < minimum) {
             minimum = numbers[i];
         }
     }
@@ -146,3 +146,15 @@ let findMinimum = (numbers) =>{
 }
 
 console.log(findMinimum([11, 12, 20, 33, 4, 2, 8]));
+
+let findMax = (numbers) => {
+    let max = numbers[0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return max
+}
+
+console.log(findMax([11, 12, 20, 33, 4, 2, 8]))
