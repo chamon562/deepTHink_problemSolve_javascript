@@ -113,11 +113,12 @@ function loopTopFive() {
 }
 loopTopFive();
 
-const numsArray = [2, 1, 4, 5, 7]
+const numsArray = [10, 2, 1, 4, 5, 7]
 
 function findMin() {
+    // let minNum = numsArray.length;
     let minNum = numsArray[0]
-    // console.log(minNum)
+    console.log(minNum)
     for (let i = 0; i < numsArray.length; i++) {
         // if (numsArray < minNum) {
         //     minNum = numsArray[i]
@@ -132,4 +133,16 @@ function findMin() {
     }
     return minNum
 }
-console.log("line 132", findMin());// 1
+console.log("line 132:", findMin());// 1
+
+let findMinimum = (numbers) =>{
+    let minimum = numbers[0];
+    for (let i = 0; i < numbers.length; i ++){
+        if (numbers[i] < minimum){
+            minimum = numbers[i];
+        }
+    }
+    return minimum;
+}
+
+console.log(findMinimum([11, 12, 20, 33, 4, 2, 8]));
