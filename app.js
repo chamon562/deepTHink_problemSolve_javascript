@@ -158,3 +158,18 @@ let findMax = (numbers) => {
 }
 
 console.log(findMax([11, 12, 20, 33, 4, 2, 8]))
+
+const newNumbers = [2, 3, 5, 6, 1]
+
+let findSmallestNumber = () =>{
+    let firstIndex = newNumbers[0]
+    for(let i = 0; i < newNumbers.length; i ++){
+        if(newNumbers[i]< firstIndex){
+            firstIndex = newNumbers[i]
+            console.log(firstIndex);
+        }
+    }
+    return firstIndex;
+}
+
+findSmallestNumber();
