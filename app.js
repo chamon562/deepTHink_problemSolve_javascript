@@ -164,13 +164,13 @@ let findMax = (numbers) => {
 
 console.log(findMax([11, 12, 20, 33, 4, 2, 8]));
 
-const newNumbers = [2, 3, 5, 6, 1, 0.32, 0.2, .003];
+const newNumbers = [2, 3, 5, 6, 1, 0.32, 0.2, 0.003];
 
 let findSmallestNumber = () => {
   let firstIndex = newNumbers[0];
   for (let i = 0; i < newNumbers.length; i++) {
     if (newNumbers[i] < firstIndex) {
-      firstIndex = newNumbers[i];
+      firstIndex = newNumbers[i]; // 2 < 2 flase, 3 < 2 false, 5 < 2 false, 6 < 2 false, 1 < 2 true, 0.32 < 2 true
       console.log(firstIndex);
     }
   }
@@ -188,6 +188,58 @@ let findMaximum = () => {
     }
   }
   return indexZero;
-  
 };
-console.log(findMaximum()  + " is the greatest number in the array ");// 6
+console.log(findMaximum() + " is the greatest number in the array "); // 6
+
+// Sorting by Biggest numbers challenge 9
+function bestRatingsFirst(numbers) {
+  // take in a list of numbers then sort them || sort() is a helper function in javascript
+  // learning to sort without helper function
+  // start at first number and loop
+  // first find max and max will give us the highest number
+  // and what to swap 15 with 3
+  // start loop at index1
+  // find max from remaining list
+  // find new max And know its location.
+
+  // outter loop and set another variable as j
+  // dont want to loop over constantly so want to stop by adding -1
+  // want this loop to start off where j is currently at made it let i = j in inner loop 
+  // j is going to be moving
+  for (let j = 0; j < numbers.length - 1; j++) {
+    //this code is to find the max
+    let maxNum = numbers[j];
+    let maxLocation = j;
+    // this is the inner loop now need the outer loop\
+    // this for loop runs once we need to find the max multiple times
+    // need to write a loop thats on the outside
+    // inner loop constanly finds max
+    for (let i = j; i < numbers.length; i++) {
+      if (numbers[i] > maxNum) {
+        maxNum = numbers[i];
+        // this is to tell what location is max at
+        maxLocation = i;
+        console.log(maxLocation);
+      }
+    }
+    // after that logic runs up top for max then swap the first and the last
+    // once given access to that index then can change it
+    // this is where the swap is taking place, swap the first and the last
+    // changed numbers[0] to numbers[j] because that will be main iterator
+    numbers[maxLocation] = numbers[j]; // -->23
+    // swapping places with the first index to equal the maxNum because of the if logic that gets the max
+    numbers[j] = maxNum;
+  }
+  // return [maxNum, maxLocation, numbers];
+  return numbers;
+}
+console.log(
+  "line 217 bestRatingFirst function:",
+  bestRatingsFirst([3, 4, 5, 0, 2, 7, 11, 23, 15])
+);
+console.log(
+  "line 217 bestRatingFirst function:",
+  bestRatingsFirst([2, 4, 6, 1])
+);
+
+// console.log(bestRatingsFirst([3, 4, 5, 0, 2, 4, 11, 23, 15]));
