@@ -415,9 +415,11 @@ function findMaxHelper(numbers, start){
 console.log(findMaxHelper([5, 2, 9, 3, 7], 0))
 
 function sortBestHelper(numbers) {
+  // run as a many times as there are items
   for (let i = 0; i < numbers.length - 1; i++) {
     // let maxNum = numbers[i];
     // let maxLocation = i;
+    // find max number and max location starting from i
     max = findMaxHelper(numbers, i);
     maxNum = max['maxNumber'];
     maxLocation = max['maxIndex']
@@ -427,7 +429,7 @@ function sortBestHelper(numbers) {
     //     maxLocation = j;
     //   }
     // }
-    // swap the first and the last number
+    // swap the first and max item in an array
     numbers[maxLocation] = numbers[i];
     numbers[i] = maxNum;
   }
@@ -435,3 +437,15 @@ function sortBestHelper(numbers) {
 }
 
 console.log(sortBestHelper([1, 4, 2, 100, 23, 31, 94, 22, 5]))
+
+class Person{
+  constructor (name, zodiac, meaning){
+    this.name = name;
+    this.zodiac = zodiac;
+    this.meaning = meaning
+  }
+}
+
+const channee = new Person("channee", "Pisces", "Versatile")
+console.log(channee)
+console.log(channee.zodiac)
