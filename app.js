@@ -255,7 +255,10 @@ let sortHighestFirst = (numbers) => {
       if (numbers[j] > maxNumber) {
         maxNumber = numbers[j];
         maxLocate = j;
-        console.log("2nd for loop with j maxNumber = to numbers[j]:", maxNumber);
+        console.log(
+          "2nd for loop with j maxNumber = to numbers[j]:",
+          maxNumber
+        );
         console.log("2nd forloop maxLocate = j:", maxLocate);
       }
     }
@@ -339,3 +342,37 @@ console.log(sortHighestFirst([2, 1, 5, 3, 6, 8, 10]));
 // app.js:263 Line 263: (7) [10, 8, 6, 5, 3, 1, 1]
 // app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 8, 6, 5, 3, 2, 1]
 // app.js:270 (7) [10, 8, 6, 5, 3, 2, 1]
+
+function sortBiggest(numbers) {
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let maxNumb = numbers[i];
+    let maxLocater = i;
+    for (let j = i; j < numbers.length; j++) {
+      if (numbers[j] > maxNumb) {
+        maxNumb = numbers[j];
+        maxLocater = j;
+      }
+    }
+    numbers[maxLocater] = numbers[i];
+    numbers[i] = maxNumb;
+  }
+  return numbers;
+}
+function sortSmallest(numbers) {
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let maxNumb = numbers[i];
+    let maxLocater = i;
+    for (let j = i; j < numbers.length; j++) {
+      if (numbers[j] < maxNumb) {
+        maxNumb = numbers[j];
+        maxLocater = j;
+      }
+    }
+    numbers[maxLocater] = numbers[i];
+    numbers[i] = maxNumb;
+  }
+  return numbers;
+}
+
+console.log(sortBiggest([3, 4, 5, 1, 22, 55, 67, 100, 9, 120, 30]));
+console.log(sortSmallest("test", [3, 4, 5, 1, 22, 55, 67, 100, 9, 120, 30]));
