@@ -376,3 +376,62 @@ function sortSmallest(numbers) {
 
 console.log(sortBiggest([3, 4, 5, 1, 22, 55, 67, 100, 9, 120, 30]));
 console.log(sortSmallest("test", [3, 4, 5, 1, 22, 55, 67, 100, 9, 120, 30]));
+
+const sort = (numbers) => {
+  // for (let i = 0; i < numbers.length; i++){ // will make output all 88
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let maxyNum = numbers[i];
+    let location = i;
+    for (let j = i; j < numbers.length; j++) {
+      if (numbers[j] > maxyNum) {
+        maxyNum = numbers[j];
+        location = j;
+      }
+    }
+    numbers[location] = numbers[i];
+    numbers[i] = maxyNum;
+  }
+  return numbers;
+};
+
+console.log(sort([3, 6, 2, 10, 2, 4, 8, 88]));
+
+// Challenge 10: how to use helper function
+// DRY principle do not repeat yourself
+// whenever using similar logic its a red flag
+// going to abstract the inner for loop inside sortBestHelper funciton
+function findMaxHelper(numbers, start){
+  let maximum = numbers[start];
+  let maxLocation = start;
+  for (let j = start; j < numbers.length; j++){
+    if(numbers[j] > maximum){
+      maximum = numbers[j];
+      maxLocation = j;
+    }
+  }
+  return {maxNumber: maximum, maxIndex: maxLocation}
+}
+
+console.log(findMaxHelper([5, 2, 9, 3, 7], 0))
+
+function sortBestHelper(numbers) {
+  for (let i = 0; i < numbers.length - 1; i++) {
+    // let maxNum = numbers[i];
+    // let maxLocation = i;
+    max = findMaxHelper(numbers, i);
+    maxNum = max['maxNumber'];
+    maxLocation = max['maxIndex']
+    // for (let j = i; j < numbers.length; j++) {
+    //   if (numbers[j] > maxNum) {
+    //     maxNum = numbers[j];
+    //     maxLocation = j;
+    //   }
+    // }
+    // swap the first and the last number
+    numbers[maxLocation] = numbers[i];
+    numbers[i] = maxNum;
+  }
+  return numbers;
+}
+
+console.log(sortBestHelper([1, 4, 2, 100, 23, 31, 94, 22, 5]))
