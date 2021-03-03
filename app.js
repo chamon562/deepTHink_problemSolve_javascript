@@ -204,7 +204,7 @@ function bestRatingsFirst(numbers) {
 
   // outter loop and set another variable as j
   // dont want to loop over constantly so want to stop by adding -1
-  // want this loop to start off where j is currently at made it let i = j in inner loop 
+  // want this loop to start off where j is currently at made it let i = j in inner loop
   // j is going to be moving
   for (let j = 0; j < numbers.length - 1; j++) {
     //this code is to find the max
@@ -243,3 +243,99 @@ console.log(
 );
 
 // console.log(bestRatingsFirst([3, 4, 5, 0, 2, 4, 11, 23, 15]));
+
+let sortHighestFirst = (numbers) => {
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let maxNumber = numbers[i];
+    let maxLocate = i;
+    console.log("the value in that index:", maxNumber);
+    console.log("i is the index:", maxLocate);
+    for (let j = i; j < numbers.length; j++) {
+      console.log("2nd loop numbers[j]:", numbers[j]);
+      if (numbers[j] > maxNumber) {
+        maxNumber = numbers[j];
+        maxLocate = j;
+        console.log("2nd for loop with j maxNumber = to numbers[j]:", maxNumber);
+        console.log("2nd forloop maxLocate = j:", maxLocate);
+      }
+    }
+    numbers[maxLocate] = numbers[i];
+    console.log("Line 263:", numbers);
+    numbers[i] = maxNumber;
+    console.log("Line 265: numbers[i] = maxNumber:", numbers);
+  }
+  return numbers;
+};
+
+console.log(sortHighestFirst([2, 1, 5, 3, 6, 8, 10]));
+// i is the index: 0
+// app.js:254 2nd loop numbers[j]: 2
+// app.js:254 2nd loop numbers[j]: 1
+// app.js:254 2nd loop numbers[j]: 5
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 5
+// app.js:259 2nd forloop maxLocate = j: 2
+// app.js:254 2nd loop numbers[j]: 3
+// app.js:254 2nd loop numbers[j]: 6
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 6
+// app.js:259 2nd forloop maxLocate = j: 4
+// app.js:254 2nd loop numbers[j]: 8
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 8
+// app.js:259 2nd forloop maxLocate = j: 5
+// app.js:254 2nd loop numbers[j]: 10
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 10
+// app.js:259 2nd forloop maxLocate = j: 6
+// app.js:263 Line 263: (7) [2, 1, 5, 3, 6, 8, 2]
+// app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 1, 5, 3, 6, 8, 2]
+// app.js:251 the value in that index: 1
+// app.js:252 i is the index: 1
+// app.js:254 2nd loop numbers[j]: 1
+// app.js:254 2nd loop numbers[j]: 5
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 5
+// app.js:259 2nd forloop maxLocate = j: 2
+// app.js:254 2nd loop numbers[j]: 3
+// app.js:254 2nd loop numbers[j]: 6
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 6
+// app.js:259 2nd forloop maxLocate = j: 4
+// app.js:254 2nd loop numbers[j]: 8
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 8
+// app.js:259 2nd forloop maxLocate = j: 5
+// app.js:254 2nd loop numbers[j]: 2
+// app.js:263 Line 263: (7) [10, 1, 5, 3, 6, 1, 2]
+// app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 8, 5, 3, 6, 1, 2]
+// app.js:251 the value in that index: 5
+// app.js:252 i is the index: 2
+// app.js:254 2nd loop numbers[j]: 5
+// app.js:254 2nd loop numbers[j]: 3
+// app.js:254 2nd loop numbers[j]: 6
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 6
+// app.js:259 2nd forloop maxLocate = j: 4
+// app.js:254 2nd loop numbers[j]: 1
+// app.js:254 2nd loop numbers[j]: 2
+// app.js:263 Line 263: (7) [10, 8, 5, 3, 5, 1, 2]
+// app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 8, 6, 3, 5, 1, 2]
+// app.js:251 the value in that index: 3
+// app.js:252 i is the index: 3
+// app.js:254 2nd loop numbers[j]: 3
+// app.js:254 2nd loop numbers[j]: 5
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 5
+// app.js:259 2nd forloop maxLocate = j: 4
+// app.js:254 2nd loop numbers[j]: 1
+// app.js:254 2nd loop numbers[j]: 2
+// app.js:263 Line 263: (7) [10, 8, 6, 3, 3, 1, 2]
+// app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 8, 6, 5, 3, 1, 2]
+// app.js:251 the value in that index: 3
+// app.js:252 i is the index: 4
+// app.js:254 2nd loop numbers[j]: 3
+// app.js:254 2nd loop numbers[j]: 1
+// app.js:254 2nd loop numbers[j]: 2
+// app.js:263 Line 263: (7) [10, 8, 6, 5, 3, 1, 2]
+// app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 8, 6, 5, 3, 1, 2]
+// app.js:251 the value in that index: 1
+// app.js:252 i is the index: 5
+// app.js:254 2nd loop numbers[j]: 1
+// app.js:254 2nd loop numbers[j]: 2
+// app.js:258 2nd for loop with j maxNumber = to numbers[j]: 2
+// app.js:259 2nd forloop maxLocate = j: 6
+// app.js:263 Line 263: (7) [10, 8, 6, 5, 3, 1, 1]
+// app.js:265 Line 265: numbers[i] = maxNumber: (7) [10, 8, 6, 5, 3, 2, 1]
+// app.js:270 (7) [10, 8, 6, 5, 3, 2, 1]
