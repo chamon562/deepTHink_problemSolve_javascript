@@ -463,8 +463,19 @@ const squareDigits = (numbers) =>{
   })
   console.log(mappedArray)
   let joinedMapArray = mappedArray.join("")
+  // joining the mapped array in string form
   console.log(joinedMapArray)
+  // using parseInt() to turn back into an integer. number in string form is black and if the number is blue is an integer
   return parseInt(joinedMapArray)
 }
 
 console.log(squareDigits(8318))
+
+let button = document.getElementById("turnBtn")
+console.log(button)
+
+button.addEventListener("click", ()=>{
+  console.log("hello")
+  document.getElementById("helloTxt").style.color = "blue"
+  
+})
