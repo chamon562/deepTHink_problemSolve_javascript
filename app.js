@@ -158,3 +158,22 @@ let findMax = (numbers) => {
 }
 
 console.log(findMax([11, 12, 20, 33, 4, 2, 8]))
+
+sortHighest = (numbers) => {
+    for (let i = 0; i < numbers.length - 1; i++) {
+        let currentMax = numbers[i];
+        let currentLocation = i;
+        for (let p = i; p < numbers.length; p++) {
+            if (numbers[p] > currentMax) {
+                currentMax = numbers[p];
+                currentLocation = p;
+            }
+        }
+        numbers[currentLocation] = numbers[i];
+        numbers[i] = currentMax;
+    }
+    return numbers;
+}
+
+console.log(sortHighest([11, 12, 20, 33, 4, 2, 8]));
+console.log("hello")
