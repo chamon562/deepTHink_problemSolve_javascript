@@ -449,3 +449,22 @@ class Person {
 const channee = new Person("channee", "Pisces", "Versatile")
 console.log(channee)
 console.log(channee.zodiac)
+
+
+// squaredigits 
+// make a function that square each number in the digits given
+// for example if given 8318 the output should be 649164
+
+const squareDigits = (numbers) =>{
+  let numToArray = numbers.toString().split("")
+  console.log(numToArray)
+  let mappedArray = numToArray.map((number)=>{
+    return Math.pow(number, 2).toString()
+  })
+  console.log(mappedArray)
+  let joinedMapArray = mappedArray.join("")
+  console.log(joinedMapArray)
+  return parseInt(joinedMapArray)
+}
+
+console.log(squareDigits(8318))
