@@ -455,10 +455,10 @@ console.log(channee.zodiac)
 // make a function that square each number in the digits given
 // for example if given 8318 the output should be 649164
 
-const squareDigits = (numbers) =>{
+const squareDigits = (numbers) => {
   let numToArray = numbers.toString().split("")
   console.log(numToArray)
-  let mappedArray = numToArray.map((number)=>{
+  let mappedArray = numToArray.map((number) => {
     return Math.pow(number, 2).toString()
   })
   console.log(mappedArray)
@@ -474,8 +474,64 @@ console.log(squareDigits(8318))
 let button = document.getElementById("turnBtn")
 console.log(button)
 
-button.addEventListener("click", ()=>{
+button.addEventListener("click", () => {
   console.log("hello")
   document.getElementById("helloTxt").style.color = "blue"
-  
+
+})
+
+
+// fetch("https://reqres.in/api/users", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify({
+//     name: "User 1"
+//   })
+// }).then(response => {
+//   // (response.ok ? console.log("SUCCESS") : console.log("NOT SUCCESSFUL"))
+//   return response.json()
+// }).then(data => console.log(data))
+//   .catch(error => console.log(error))
+// .then(response => console.log(response.json))
+
+// practicing promises
+
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // resolve({
+    //   firstName: "Channee",
+    //   lastName: "Math"
+    // });
+    reject("Something is wrong")
+  }, 3000);
+});
+// .then is for when its a success
+promise.then((response) => {
+  console.log("after 3 seconds");
+  console.log(response);
+}).catch((error) =>{
+  console.log(error)
+})
+
+let userPromise = fetch("https://randomuser.me/api");
+userPromise.then((res)=>{
+  // console.log(res)
+  // console.log(res.json())
+  return res.json()
+}).then((resData)=>{
+  console.log(resData)
+  console.log(resData.results[0].cell)
+  console.log(resData.results[0].email)
+  console.log(resData.results[0].dob.age)
+  console.log(resData.results[0].dob.date)
+  console.log(resData.results[0].name.first)
+  console.log(resData.results[0].name.last)
+  console.log(resData.results[0].phone)
+  console.log(resData.results[0].picture.large)
+  // console.log(resData)
+})
+.catch((err)=>{
+  console.log(err)
 })
